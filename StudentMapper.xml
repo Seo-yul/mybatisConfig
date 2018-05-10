@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user.dao.StudentMapper">
+	<insert id="insertStudent" parameterType="Student">
+		Insert into Students (STDNO, NAME, AGE)
+		VALUES (#{stdno}, #{name}, #{age})
+	</insert>
+
+	<select id="findStudent" parameterType="String" resultType="Student">
+	select stdno, name, age
+	from Students
+	where stdno = #{stdno}
+	</select>
+	
+	<update id="updateStudent" parameterType="Student">
+	UPDATE STUDENTS SET
+		NAME = #{name},
+		AGE = #{age}
+	where stdno = #{stdno}
+	</update>
+	
+	<delete id="deleteStudent" parameterType="Student" >
+	Delete STUDENT 
+	where stdno=#{stdno}
+	</delete>
+
+	
+</mapper>
